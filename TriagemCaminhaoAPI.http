@@ -1,0 +1,15 @@
+@TriagemCaminhaoAPI_HostAddress = http://localhost:5069
+
+GET {{TriagemCaminhaoAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+###
+
+### Criar um novo caminhão
+POST {{TriagemCaminhaoAPI_HostAddress}}/api/Caminhoes
+Content-Type: application/json
+
+{
+    "nome": "Caminhão XYZ",
+    "whatsapp": "+551199999999",
+    "mensagem": "Esta é uma mensagem de exemplo."
+}
