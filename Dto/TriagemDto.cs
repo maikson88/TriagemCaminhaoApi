@@ -15,5 +15,6 @@ namespace TriagemCaminhaoAPI.Dto
         public DateTime DataChegada { get; set; }
 
         public DateTime? DataAtendimento { get; set; }
+        public DateTime? DataSaida { get; set; }
     }
 }

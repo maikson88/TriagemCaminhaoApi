@@ -19,6 +19,7 @@ public partial class Triagem
     public DateTime DataChegada { get; set; }
 
     public DateTime? DataAtendimento { get; set; }
+    public DateTime? DataSaida { get; set; }
 
     public virtual Caminhoes Caminhao { get; set; } = null!;
 

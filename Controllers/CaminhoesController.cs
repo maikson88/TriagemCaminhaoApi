@@ -50,7 +50,6 @@ namespace TriagemCaminhaoAPI.Controllers
                 {
                     NomeTransportadora = caminhaoDto.NomeTransportadora,
                     Whatsapp = caminhaoDto.Whatsapp,
-                    Mensagem = caminhaoDto.Mensagem
                 };
 
                 _context.Caminhoes.Add(caminhao);

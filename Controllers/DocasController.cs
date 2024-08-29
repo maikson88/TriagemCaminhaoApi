@@ -33,7 +33,6 @@ namespace TriagemCaminhaoAPI.Controllers
             {
                 Id = d.Id,
                 NomeDoca = d.NomeDoca,
-                StatusDoca = d.StatusDoca
             }).ToList();
 
             // Retorna a lista de DocaDto
@@ -75,7 +74,6 @@ namespace TriagemCaminhaoAPI.Controllers
 
             // Atualiza os valores da Doca existente com os valores do DTO
             existingDoca.NomeDoca = docaDto.NomeDoca;
-            existingDoca.StatusDoca = docaDto.StatusDoca;
 
             // Marca a entidade como modificada
             _context.Entry(existingDoca).State = EntityState.Modified;
@@ -117,7 +115,6 @@ namespace TriagemCaminhaoAPI.Controllers
                 doca = new Doca
                 {
                     NomeDoca = docaDto.NomeDoca,
-                    StatusDoca = docaDto.StatusDoca,
                 };
 
                 // Adicionar o caminhão à tabela Caminhoes

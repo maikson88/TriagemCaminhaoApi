@@ -9,7 +9,5 @@ public partial class Doca
 
     public string NomeDoca { get; set; } = null!;
 
-    public string StatusDoca { get; set; } = null!;
-
     public virtual ICollection<Triagem> Triagems { get; set; } = new List<Triagem>();
 }

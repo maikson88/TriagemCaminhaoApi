@@ -20,8 +20,6 @@ public partial class Shinra1Context : DbContext
 
     public virtual DbSet<Doca> Docas { get; set; }
 
-    public virtual DbSet<Log> Logs { get; set; }
-
     public virtual DbSet<StatusTriagem> StatusTriagems { get; set; }
 
     public virtual DbSet<Triagem> Triagems { get; set; }
@@ -38,7 +36,6 @@ public partial class Shinra1Context : DbContext
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.NomeTransportadora).HasMaxLength(100);
             entity.Property(e => e.Whatsapp);
-            entity.Property(e => e.Mensagem);
         });
 
         modelBuilder.Entity<Doca>(entity =>
@@ -49,26 +46,6 @@ public partial class Shinra1Context : DbContext
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.NomeDoca).HasMaxLength(100);
-            entity.Property(e => e.StatusDoca).HasMaxLength(50);
-        });
-
-        modelBuilder.Entity<Log>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Logs__3214EC27D773A27D");
-
-            entity.ToTable("Logs", "TriagemCaminhao");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Acao).HasMaxLength(200);
-            entity.Property(e => e.CaminhaoId).HasColumnName("CaminhaoID");
-            entity.Property(e => e.DataHora)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
-            entity.Property(e => e.Usuario).HasMaxLength(100);
-
-            entity.HasOne(d => d.Caminhao).WithMany(p => p.Logs)
-                .HasForeignKey(d => d.CaminhaoId)
-                .HasConstraintName("FK__Logs__CaminhaoID__3CF40B7E");
         });
 
         modelBuilder.Entity<StatusTriagem>(entity =>
@@ -107,8 +84,9 @@ public partial class Shinra1Context : DbContext
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.CaminhaoId).HasColumnName("CaminhaoID");
-            entity.Property(e => e.DataAtendimento).HasColumnType("datetime");
             entity.Property(e => e.DataChegada).HasColumnType("datetime");
+            entity.Property(e => e.DataAtendimento).HasColumnType("datetime");
+            entity.Property(e => e.DataSaida).HasColumnType("datetime");
             entity.Property(e => e.DocaId).HasColumnName("DocaID");
             entity.Property(e => e.StatusId).HasColumnName("StatusID");
             entity.Property(e => e.PrioridadeID).HasColumnName("PrioridadeID");

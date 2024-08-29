@@ -11,5 +11,4 @@ Content-Type: application/json
 {
     "nome": "Caminhão XYZ",
     "whatsapp": "+551199999999",
-    "mensagem": "Esta é uma mensagem de exemplo."
 }
