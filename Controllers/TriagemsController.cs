@@ -157,7 +157,7 @@ namespace TriagemCaminhaoAPI.Controllers
         /// Atualiza Status para "Atendido"
         /// </summary>
         // PUT: api/Triagems/atendendo/5
-        [HttpPut("Atendido/{id}")]
+        [HttpPut("atendido/{id}")]
         public async Task<IActionResult> PutAtendidoTriagem(int id)
         {
             // Buscar a triagem existente no banco de dados
@@ -276,19 +276,6 @@ namespace TriagemCaminhaoAPI.Controllers
 
             return NoContent();
         }
-
-        /*
-        // POST: api/Triagems
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Triagem>> PostTriagem(Triagem triagem)
-        {
-            _context.Triagems.Add(triagem);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetTriagem", new { id = triagem.Id }, triagem);
-        }
-        */
 
 
         // DELETE: api/Triagems/5
